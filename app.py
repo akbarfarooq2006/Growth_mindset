@@ -2,18 +2,13 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-from fpdf import FPDF,HTMLMixin
+from fpdf import FPDF
 
 # Setup of application
 st.set_page_config(page_title="✅ Data Sweeper", layout='wide')
 st.title("✅ Data Sweeper")
 st.write("Transform your files between CSV and Excel formats with built-in data cleaning and visualization!")
 
-
-# pdf convertor function
-
-class PDF(FPDF, HTMLMixin):
-    pass  # HTML mixin use karenge for table formatting
 
 
 
@@ -98,8 +93,6 @@ if uploaded_files:
 
 
         # CONVERT FILE
-
-        st.subheader("🎯 Select Columns to Convert")
         # Section to choose file conversion type (CSV or Excel)
         st.subheader("🔄 Conversion Options")
         conversion_type = st.radio(f"Convert {file.name} to:", [
